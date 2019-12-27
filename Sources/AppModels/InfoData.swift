@@ -7,6 +7,6 @@
 
 import Vapor
 
-struct InfoData: Content {
-    let name: String
+public struct InfoData: Content {
+    public let name: String
 }

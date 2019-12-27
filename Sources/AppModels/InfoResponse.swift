@@ -7,6 +7,6 @@
 
 import Vapor
 
-struct InfoResponse: Content {
+public struct InfoResponse: Content {
     let request: InfoData
 }
