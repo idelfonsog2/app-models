@@ -8,5 +8,9 @@
 import Vapor
 
 public struct InfoResponse: Content {
-    let request: InfoData
+    var request: InfoData
+    
+    public init(request: InfoData) {
+        self.request = request
+    }
 }
