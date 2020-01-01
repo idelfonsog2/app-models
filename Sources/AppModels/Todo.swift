@@ -1,4 +1,4 @@
-import FluentSQLite
+import FluentPostgreSQL
 import Vapor
 
 /// A single entry of a Todo list.
@@ -25,4 +25,4 @@ extension Todo: Content { }
 /// Allows `Todo` to be used as a dynamic parameter in route definitions.
 extension Todo: Parameter { }
 
-extension Todo: SQLiteModel { }
+extension Todo: PostgreSQLModel { }

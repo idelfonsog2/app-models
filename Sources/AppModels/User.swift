@@ -5,7 +5,7 @@
 //  Created by idelfonso Gutierrez on 12/31/19.
 //
 
-import FluentSQLite
+import FluentPostgreSQL
 import Vapor
 import Foundation
 
@@ -24,7 +24,7 @@ extension User: Migration { }
 
 // customize the ID property database
 extension User: Model {
-    public typealias Database = SQLiteDatabase
+    public typealias Database = PostgreSQLDatabase
     
     public typealias ID = Int
     
@@ -32,4 +32,4 @@ extension User: Model {
 }
 
 // FLuent[Provider] does the above for you by conforming your models to it
-extension User: SQLiteModel { }
+extension User: PostgreSQLModel { }
