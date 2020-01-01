@@ -2,7 +2,7 @@ import FluentSQLite
 import Vapor
 
 /// A single entry of a Todo list.
-public final class Todo: SQLiteModel {
+public final class Todo: Codable {
     /// The unique identifier for this `Todo`.
     public var id: Int?
 
@@ -24,3 +24,5 @@ extension Todo: Content { }
 
 /// Allows `Todo` to be used as a dynamic parameter in route definitions.
 extension Todo: Parameter { }
+
+extension Todo: SQLiteModel { }
