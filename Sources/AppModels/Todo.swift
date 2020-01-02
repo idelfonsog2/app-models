@@ -27,3 +27,9 @@ extension Todo: Content { }
 extension Todo: Parameter { }
 
 extension Todo: PostgreSQLModel { }
+
+extension Todo {
+    var user: Parent <Todo, User> {
+        return parent(\.userID)
+    }
+}
