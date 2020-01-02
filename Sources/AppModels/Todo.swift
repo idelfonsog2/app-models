@@ -5,14 +5,15 @@ import Vapor
 public final class Todo: Codable {
     /// The unique identifier for this `Todo`.
     public var id: Int?
-
+    public var userID: User.ID
     /// A title describing what this `Todo` entails.
     public var title: String
 
     /// Creates a new `Todo`.
-    public init(id: Int? = nil, title: String) {
+    public init(id: Int? = nil, title: String, userID: User.ID) {
         self.id = id
         self.title = title
+        self.userID = userID
     }
 }
 

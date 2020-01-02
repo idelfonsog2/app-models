@@ -10,7 +10,7 @@ import Vapor
 import Foundation
 
 public struct User: Codable {
-    public var id: Int?
+    public var id: UUID?
     public var username: String
     
     public init(id: Int? = nil, username: String) {
@@ -18,18 +18,20 @@ public struct User: Codable {
     }
 }
 
+extension User: PostgreSQLUUIDModel { }
+
 extension User: Parameter { }
 extension User: Content { }
 extension User: Migration { }
 
-// customize the ID property database
-extension User: Model {
-    public typealias Database = PostgreSQLDatabase
-    
-    public typealias ID = Int
-    
-    public static var idKey: IDKey = \User.id
-}
+//// customize the ID property database
+//extension User: Model {
+//    public typealias Database = PostgreSQLDatabase
+//
+//    public typealias ID = UUID
+//
+//    public static var idKey: IDKey = \User.id
+//}
 
 // FLuent[Provider] does the above for you by conforming your models to it
-extension User: PostgreSQLModel { }
+
