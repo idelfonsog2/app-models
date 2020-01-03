@@ -18,7 +18,14 @@ public final class Todo: Codable {
 }
 
 /// Allows `Todo` to be used as a dynamic migration.
-extension Todo: Migration { }
+extension Todo: Migration {
+    public static func prepare(on connection: PostgreSQLConnection) -> Future<Void> {
+        return Database.create(self, on: connection) { (builder) in // oh CREATE
+            try addProperties(to: builder)
+            builder.reference(from: \.userID, to: \User.id) // this setup the FK between the two tables
+        }
+    }
+}
 
 /// Allows `Todo` to be encoded to and decoded from HTTP messages.
 extension Todo: Content { }
