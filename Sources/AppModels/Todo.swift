@@ -35,6 +35,14 @@ extension Todo: Parameter { }
 
 extension Todo: PostgreSQLModel { }
 
+//extension User: Model {
+//    public typealias Database = PostgreSQLDatabase
+//
+//    public typealias ID = UUID
+//
+//    public static var idKey: IDKey = \User.id
+//}
+
 extension Todo {
     var user: Parent <Todo, User> {
         return parent(\.userID)

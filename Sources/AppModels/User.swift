@@ -18,11 +18,12 @@ public struct User: Codable {
     }
 }
 
-extension User: PostgreSQLUUIDModel { }
 
 extension User: Parameter { }
 extension User: Content { }
 extension User: Migration { }
+
+extension User: PostgreSQLUUIDModel { }
 
 //// customize the ID property database
 //extension User: Model {
