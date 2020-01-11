@@ -43,8 +43,8 @@ extension Todo: PostgreSQLModel { }
 //    public static var idKey: IDKey = \User.id
 //}
 
-extension Todo {
-    var user: Parent <Todo, User> {
+public extension Todo {
+    public var user: Parent <Todo, User> {
         return parent(\.userID)
     }
 }
