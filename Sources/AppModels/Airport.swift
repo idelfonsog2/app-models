@@ -10,12 +10,16 @@ import CoreLocation
 
 public final class Airport: Codable {
     public var id: Int?
-    public var name: Data
+    public var name: String
     public var iataCode: String
-    public var location: Location
+    public var gate: String
+    public var terminal: String
     
-    public init(id: Int? = nil, token: Data, platform: String) {
+    public init(id: Int? = nil, name: String, iataCode: String, gate: String, terminal: String) {
         self.id = id
-        self.token = token
+        self.name = name
+        self.iataCode = iataCode
+        self.gate = gate
+        self.terminal = terminal
     }
 }

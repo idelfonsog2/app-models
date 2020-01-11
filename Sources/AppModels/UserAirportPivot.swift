@@ -8,5 +8,5 @@
 import FluentPostgreSQL
 
 class UserAirportPivot {
-    var
+    
 }
