@@ -25,8 +25,8 @@ extension User: Migration { }
 
 extension User: PostgreSQLUUIDModel { }
 
-extension User {
-    var todos: Children<User, Todo> {
+public extension User {
+     var todos: Children<User, Todo> {
         return children(\.userID)
     }
 }
