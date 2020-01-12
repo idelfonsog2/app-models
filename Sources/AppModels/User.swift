@@ -25,6 +25,12 @@ extension User: Migration { }
 
 extension User: PostgreSQLUUIDModel { }
 
+extension User {
+    var todos: Children<User, Todo> {
+        return children(\.userID)
+    }
+}
+
 //// customize the ID property database
 //extension User: Model {
 //    public typealias Database = PostgreSQLDatabase
@@ -34,5 +40,4 @@ extension User: PostgreSQLUUIDModel { }
 //    public static var idKey: IDKey = \User.id
 //}
 
-// FLuent[Provider] does the above for you by conforming your models to it
 
