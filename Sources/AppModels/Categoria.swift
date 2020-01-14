@@ -9,7 +9,7 @@ import Vapor
 import FluentPostgreSQL
 
 /// design to stablish Many to many relationship
-public struct Category: Codable {
+public struct Categoria: Codable {
     public var id: Int?
     public var name: String
     
@@ -19,8 +19,8 @@ public struct Category: Codable {
 }
 
 
-extension Category: Content { }
-extension Category: Migration { }
-extension Category: Parameter { }
+extension Categoria: Content { }
+extension Categoria: Migration { }
+extension Categoria: Parameter { }
 
-extension Category: PostgreSQLModel { }
+extension Categoria: PostgreSQLModel { }
