@@ -6,8 +6,10 @@
 //
 
 import Foundation
-import CoreLocation
+import Vapor
+import FluentPostgreSQL
 
+/// design to stablish Many to many relationship
 public final class Airport: Codable {
     public var id: Int?
     public var name: String
@@ -23,3 +25,9 @@ public final class Airport: Codable {
         self.terminal = terminal
     }
 }
+
+extension Airport: Content { }
+extension Airport: Migration { }
+extension Airport: Parameter { }
+
+extension Airport: PostgreSQLModel { }

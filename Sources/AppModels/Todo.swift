@@ -20,7 +20,7 @@ public final class Todo: Codable {
 /// Allows `Todo` to be used as a dynamic migration.
 extension Todo: Migration {
     public static func prepare(on connection: PostgreSQLConnection) -> Future<Void> {
-        return Database.create(self, on: connection) { (builder) in // oh CREATE
+        return Database.create(self, on: connection) { (builder) in
             try addProperties(to: builder)
             builder.reference(from: \.userID, to: \User.id) // this setup the FK between the two tables
         }
@@ -44,7 +44,7 @@ extension Todo: PostgreSQLModel { }
 //}
 
 public extension Todo {
-    public var user: Parent <Todo, User> {
+    var user: Parent <Todo, User> {
         return parent(\.userID)
     }
 }
