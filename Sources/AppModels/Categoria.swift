@@ -19,8 +19,7 @@ public struct Categoria: Codable {
 }
 
 
+extension Categoria: PostgreSQLModel { }
 extension Categoria: Content { }
 extension Categoria: Migration { }
 extension Categoria: Parameter { }
-
-extension Categoria: PostgreSQLModel { }
