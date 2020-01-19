@@ -8,19 +8,19 @@
 import FluentPostgreSQL
 import Foundation
 
-final class TodoCategoryPivot: PostgreSQLUUIDPivot {    
-    var id: UUID?
+public final class TodoCategoryPivot: PostgreSQLUUIDPivot {
+    public var id: UUID?
     
-    var todoID: Todo.ID
-    var categoryID: Categoria.ID
+    public var todoID: Todo.ID
+    public var categoryID: Categoria.ID
     
-    typealias Left = Todo
-    typealias Right = Categoria
+    public typealias Left = Todo
+    public typealias Right = Categoria
     
-    static let leftIDKey: LeftIDKey = \.todoID
-    static let rightIDKey: RightIDKey = \.categoryID
+    public static let leftIDKey: LeftIDKey = \.todoID
+    public static let rightIDKey: RightIDKey = \.categoryID
     
-    init(_ todo: Todo, _ category: Categoria) throws {
+    public init(_ todo: Todo, _ category: Categoria) throws {
         self.todoID = try todo.requireID()
         self.categoryID = try category.requireID()
     }
