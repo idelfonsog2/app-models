@@ -27,12 +27,8 @@ extension Todo: Migration {
     }
 }
 
-/// Allows `Todo` to be encoded to and decoded from HTTP messages.
-extension Todo: Content { }
-
-/// Allows `Todo` to be used as a dynamic parameter in route definitions.
+extension Todo: Content { } /// Allows `Todo` to be encoded to and decoded from HTTP messages.
 extension Todo: Parameter { }
-
 extension Todo: PostgreSQLModel { }
 
 //extension User: Model {
@@ -46,5 +42,11 @@ extension Todo: PostgreSQLModel { }
 public extension Todo {
     var user: Parent <Todo, User> {
         return parent(\.userID)
+    }
+}
+
+public extension Todo {
+    public var categorias: Siblings<Todo, Categoria, TodoCategoryPivot> {
+        return siblings()
     }
 }
