@@ -25,7 +25,7 @@ extension Categoria: Migration { }
 extension Categoria: Parameter { }
 
 public extension Categoria {
-    public var acronyms: Siblings<Categoria, Todo, TodoCategoryPivot> {
+    public var todos: Siblings<Categoria, Todo, TodoCategoryPivot> {
         return siblings()
     }
 }
