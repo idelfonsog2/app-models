@@ -23,3 +23,9 @@ extension Categoria: PostgreSQLModel { }
 extension Categoria: Content { }
 extension Categoria: Migration { }
 extension Categoria: Parameter { }
+
+extension Categoria {
+    var acronyms: Siblings<Categoria, Todo, TodoCategoryPivot> {
+        return siblings()
+    }
+}
