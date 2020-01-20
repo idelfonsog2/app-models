@@ -46,7 +46,7 @@ public extension Todo {
 }
 
 public extension Todo {
-    public var categorias: Siblings<Todo, Categoria, TodoCategoryPivot> {
+    var categorias: Siblings<Todo, Categoria, TodoCategoryPivot> {
         return siblings()
     }
 }

@@ -26,5 +26,14 @@ public final class TodoCategoryPivot: PostgreSQLUUIDPivot {
     }
 }
 
-extension TodoCategoryPivot: Migration { }
+extension TodoCategoryPivot: Migration {
+    static func prepare(on connection: PostgreSQLConnection) -> Future<Void> {
+        return Database.create(self, on: connection) { (builder) in
+            try addProperties(to: builder)
+            
+            builder.reference(from: \.todoID, to: \Todo.id, onDelete: .cascade)
+            builder.reference(from: \.categoryID, to: \Categoria.id, onDelete: .cascade)
+        }
+    }
+}
 extension TodoCategoryPivot: ModifiablePivot { }
