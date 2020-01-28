@@ -26,6 +26,8 @@ public final class TodoCategoryPivot: PostgreSQLUUIDPivot {
     }
 }
 
+extension TodoCategoryPivot: ModifiablePivot { }
+
 extension TodoCategoryPivot: Migration {
     static func prepare(on connection: PostgreSQLConnection) -> Future<Void> {
         return Database.create(self, on: connection) { (builder) in
@@ -36,4 +38,3 @@ extension TodoCategoryPivot: Migration {
         }
     }
 }
-extension TodoCategoryPivot: ModifiablePivot { }
