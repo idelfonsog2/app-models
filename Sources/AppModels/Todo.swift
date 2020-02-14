@@ -3,10 +3,8 @@ import Vapor
 
 /// A single entry of a Todo list.
 public final class Todo: Codable {
-    /// The unique identifier for this `Todo`.
     public var id: Int?
     public var userID: User.ID
-    /// A title describing what this `Todo` entails.
     public var title: String
 
     /// Creates a new `Todo`.
@@ -30,14 +28,6 @@ extension Todo: Migration {
 extension Todo: Content { } /// Allows `Todo` to be encoded to and decoded from HTTP messages.
 extension Todo: Parameter { }
 extension Todo: PostgreSQLModel { }
-
-//extension User: Model {
-//    public typealias Database = PostgreSQLDatabase
-//
-//    public typealias ID = UUID
-//
-//    public static var idKey: IDKey = \User.id
-//}
 
 public extension Todo {
     var user: Parent <Todo, User> {

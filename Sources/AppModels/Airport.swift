@@ -11,13 +11,13 @@ import FluentPostgreSQL
 
 /// design to stablish Many to many relationship
 public final class Airport: Codable {
-    public var id: Int?
+    public var id: String?
     public var name: String
     public var iataCode: String
     public var gate: String
     public var terminal: String
     
-    public init(id: Int? = nil, name: String, iataCode: String, gate: String, terminal: String) {
+    public init(id: String? = nil, name: String, iataCode: String, gate: String, terminal: String) {
         self.id = id
         self.name = name
         self.iataCode = iataCode
@@ -30,4 +30,4 @@ extension Airport: Content { }
 extension Airport: Migration { }
 extension Airport: Parameter { }
 
-extension Airport: PostgreSQLModel { }
+extension Airport: PostgreSQLStringModel { }

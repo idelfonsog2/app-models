@@ -10,11 +10,13 @@ import Vapor
 import Foundation
 
 public struct User: Codable {
-    public var id: UUID?
+    public var id: Int?
     public var username: String
+    public var aiportID: Airport.ID
     
-    public init(id: Int? = nil, username: String) {
+    public init(id: Int? = nil, username: String, aiportID: Airport.ID) {
         self.username = username
+        self.aiportID = aiportID
     }
 }
 
@@ -23,21 +25,16 @@ extension User: Parameter { }
 extension User: Content { }
 extension User: Migration { }
 
-extension User: PostgreSQLUUIDModel { }
+extension User: PostgreSQLModel { }
 
 public extension User {
      var todos: Children<User, Todo> {
         return children(\.userID)
     }
+    
+    var airport: Parent<User, Airport> {
+        return parent(\.aiportID)
+    }
 }
-
-//// customize the ID property database
-//extension User: Model {
-//    public typealias Database = PostgreSQLDatabase
-//
-//    public typealias ID = UUID
-//
-//    public static var idKey: IDKey = \User.id
-//}
 
 
