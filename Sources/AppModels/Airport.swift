@@ -16,10 +16,6 @@ public struct Airport: Codable {
     public var gate: String
     public var terminal: String
     
-    public var users: Children<Airport, User> {
-        return children(\.aiportID)
-    }
-    
     public init(id: String? = nil, name: String, iataCode: String, gate: String, terminal: String) {
         self.id = id
         self.name = name
@@ -33,3 +29,9 @@ extension Airport: PostgreSQLStringModel { }
 extension Airport: Content { }
 extension Airport: Migration { }
 extension Airport: Parameter { }
+
+public extension Airport {
+    var users: Children<Airport, User> {
+        return children(\.aiportID)
+    }
+}
