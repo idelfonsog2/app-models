@@ -14,15 +14,6 @@ public struct User: Codable {
     public var username: String
     public var aiportID: Airport.ID
     
-    // relationships
-    var todos: Children<User, Todo> {
-        return self.children(\.userID)
-    }
-    
-    var airport: Parent<User, Airport> {
-        return parent(\.aiportID)
-    }
-    
     // Initializers
     public init(id: Int? = nil, username: String, aiportID: Airport.ID) {
         self.username = username
@@ -41,5 +32,15 @@ extension User: Migration {
             try addProperties(to: builder)
             builder.reference(from: \.aiportID, to: \Airport.id) // this setup the FK between the two tables
         }
+    }
+}
+
+public extension User {
+    var todos: Children<User, Todo> {
+        return self.children(\.userID)
+    }
+    
+    var airport: Parent<User, Airport> {
+        return parent(\.aiportID)
     }
 }
