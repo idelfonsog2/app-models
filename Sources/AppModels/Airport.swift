@@ -17,7 +17,7 @@ public struct Airport: Codable {
     public var terminal: String
     
     public var users: Children<Airport, User> {
-        return self.children(\.userID)
+        return children(\.userID)
     }
     
     public init(id: String? = nil, name: String, iataCode: String, gate: String, terminal: String) {

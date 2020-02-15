@@ -12,7 +12,7 @@ import FluentPostgreSQL
 public struct User: Codable {
     public var id: Int?
     public var username: String
-    public let aiportID: Airport.ID
+    public var aiportID: Airport.ID
     
     // relationships
     var todos: Children<User, Todo> {
