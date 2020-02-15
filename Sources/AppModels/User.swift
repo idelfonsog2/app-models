@@ -9,14 +9,20 @@ import Foundation
 import Vapor
 import FluentPostgreSQL
 
-public struct User: Codable {
+public final class User: Codable {
     public var id: Int?
     public var username: String
+    public var gate: String
+    public var terminal: String
+    public var deviceToken: Data?
     public var aiportID: Airport.ID
     
     // Initializers
-    public init(id: Int? = nil, username: String, aiportID: Airport.ID) {
+    public init(id: Int? = nil, username: String, gate: String, terminal: String, aiportID: Airport.ID, deviceToken: Data? = nil) {
         self.username = username
+        self.gate = gate
+        self.terminal = terminal
+        self.deviceToken = deviceToken
         self.aiportID = aiportID
     }
 }
